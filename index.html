@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="select">
+        <select onclick="set_timer()" name="choices" id="choice">
+            <option value="Small rest">Small rest</option>
+            <option value="Long rest">Long rest</option>
+            <option value="Study">Study</option>
+        </select>
+    </div>
+    <div class="clock">
+        <div>
+            <span class="minutes"></span> :
+            <span class="seconds"></span>
+        </div>
+    </div>
+
+    <div class="work_name">
+        <input type="text" name="work_name" id="work_name_id" value="rock your work:) ">
+    </div>
+    <div class="butts">
+        <button onclick="start_timer()">Start</button>
+        <button onclick="reset_timer()">reset</button>
+        <button onclick="show_more_settings()">More settings</button>
+    </div>
+    <div class="more_settings" style="display: none;">
+        <p>Work time: <input type="range" value="25" name="work_t" id="work_t" min="1" max="60"
+                oninput="updatevals('work_t')"><span class="work_tspan">25</span></p>
+        <p>Short break time: <input type="range" name="sb_t" id="sb_t" min="1" max="60" value="5"
+                oninput="updatevals('sb_t')"><span class="sb_tspan">5</span></p>
+        <p>Long break time: <input type="range" name="lb_t" id="lb_t" min="1" max="60" oninput="updatevals('lb_t')"
+                value="20"><span class="lb_tspan">20</span>
+        </p>
+        <button onclick="show_more_settings()">save settings</button>
+    </div>
+    <div class="log">
+        <h3>Logs:</h3>
+        <div>
+            <p class="w_dis">Did some math</p><span class="logdate"></span>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
