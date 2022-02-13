@@ -24,7 +24,7 @@
             <option value="Study">Study</option>
         </select>
     </div>
-    <div class="clock">
+    <div class="clock display-1">
         <div>
             <span class="minutes"></span> :
             <span class="seconds"></span>
@@ -34,13 +34,13 @@
     <div class="work_name">
         <input type="text" name="work_name" id="work_name_id" value="rock your work:) ">
     </div>
-    <div class="butts">
+    <div class="butts container mb-4">
         <button onclick="start_timer()" class="btn btn-success">Start</button>
         <button onclick="reset_timer()" class="btn btn-danger">reset</button>
         <button onclick="pause_timer()" class="btn btn-primary">pause</button>
         <button onclick="show_more_settings()" class="btn btn-primary">More settings</button>
     </div>
-    <div class="more_settings container" style="display: none;">
+    <div class="more_settings container text-center mt-4 mb-4 p-4" style="display: none;">
         <p>Work time: <input type="range" value="25" name="work_t" id="work_t" min="1" max="60"
                 oninput="updatevals('work_t')"><span class="work_tspan">25</span></p>
         <p>Short break time: <input type="range" name="sb_t" id="sb_t" min="1" max="60" value="5"
@@ -50,7 +50,7 @@
         </p>
         <button onclick="show_more_settings()" class="btn btn-primary">save settings</button>
     </div>
-    <div class="log">
+    <div class="log container text-center">
         <h3>Logs:</h3>
         <div>
             <p class="w_dis">Did some math</p><span class="logdate"></span>
