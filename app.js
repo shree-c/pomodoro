@@ -11,7 +11,6 @@ const more_settings_ele = document.querySelector('.more_settings')
 let paused = false;
 let start_time_id = null;
 
-
 //based on the type of timer selected populate minutes and seconds fields with respective values
 set_timer();
 function set_timer() {
@@ -59,21 +58,24 @@ function start_timer() {
     //the minutes value is dynamically taken care of already
     //if second value becomes zero decrement minutes
     //if minutes go negative alert and stop timer
-    if (start_time_id) {
+
+    //pausing by pressing start button again
+    if (start_time_id && !paused) {
         clearInterval(start_time_id);
         start_time_id = null;
         paused = true;
         return;
     }
-
+    //for save settings button
     if (!paused) {
         set_timer();
         paused = true;
     }
+    //logging for study
     if (choice_ele.value === 'Study')
         log(work_name_imp_ele.value)
-    if (start_time_id)
-        clearInterval(start_time_id);
+    if (paused)
+        paused = false;
     start_time_id = setInterval(() => {
         // console.log(+minutes.innerText)
         // console.log(+seconds.innerText)
@@ -98,8 +100,6 @@ function start_timer() {
 }
 //clears interval if anything is running
 function reset_timer() {
-    if (start_time_id)
-        clearInterval(start_time_id);
     set_timer();
 }
 

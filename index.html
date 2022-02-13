@@ -10,11 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="select">
-        <select onclick="set_timer()" name="choices" id="choice">
+    <div class="select container">
+        <select onclick="set_timer()" name="choices" id="choice" class="form-select form-select-md"
+            aria-label="Default select example">
             <option value="Small rest">Small rest</option>
             <option value="Long rest">Long rest</option>
             <option value="Study">Study</option>
@@ -31,12 +35,12 @@
         <input type="text" name="work_name" id="work_name_id" value="rock your work:) ">
     </div>
     <div class="butts">
-        <button onclick="start_timer()">Start</button>
-        <button onclick="reset_timer()">reset</button>
-        <button onclick="pause_timer()">pause</button>
-        <button onclick="show_more_settings()">More settings</button>
+        <button onclick="start_timer()" class="btn btn-success">Start</button>
+        <button onclick="reset_timer()" class="btn btn-danger">reset</button>
+        <button onclick="pause_timer()" class="btn btn-primary">pause</button>
+        <button onclick="show_more_settings()" class="btn btn-primary">More settings</button>
     </div>
-    <div class="more_settings" style="display: none;">
+    <div class="more_settings container" style="display: none;">
         <p>Work time: <input type="range" value="25" name="work_t" id="work_t" min="1" max="60"
                 oninput="updatevals('work_t')"><span class="work_tspan">25</span></p>
         <p>Short break time: <input type="range" name="sb_t" id="sb_t" min="1" max="60" value="5"
@@ -44,7 +48,7 @@
         <p>Long break time: <input type="range" name="lb_t" id="lb_t" min="1" max="60" oninput="updatevals('lb_t')"
                 value="20"><span class="lb_tspan">20</span>
         </p>
-        <button onclick="show_more_settings()">save settings</button>
+        <button onclick="show_more_settings()" class="btn btn-primary">save settings</button>
     </div>
     <div class="log">
         <h3>Logs:</h3>
