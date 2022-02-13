@@ -1,14 +1,14 @@
 //global jobs
 const logele = document.querySelector('.logdate');
-
 logele.innerText = new Date().toLocaleString();
-Notification.requestPermission().then(function (permission) { console.log('permiss', permission) });
+Notification.requestPermission().then(function (permission) { console.log('permission', permission) });
 const minutes = document.querySelector('.minutes')
 const seconds = document.querySelector('.seconds')
 const work_name_ele = document.querySelector('.work_name');
 const work_name_imp_ele = document.querySelector('#work_name_id');
 const choice_ele = document.querySelector('#choice');
 const more_settings_ele = document.querySelector('.more_settings')
+let paused = false;
 let start_time_id = null;
 
 
@@ -59,7 +59,17 @@ function start_timer() {
     //the minutes value is dynamically taken care of already
     //if second value becomes zero decrement minutes
     //if minutes go negative alert and stop timer
-    set_timer();
+    if (start_time_id) {
+        clearInterval(start_time_id);
+        start_time_id = null;
+        paused = true;
+        return;
+    }
+
+    if (!paused) {
+        set_timer();
+        paused = true;
+    }
     if (choice_ele.value === 'Study')
         log(work_name_imp_ele.value)
     if (start_time_id)
@@ -103,7 +113,7 @@ function send_notif() {
     // Let's check whether notification permissions have already been granted
     else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
-        var notification = new Notification(`completed your ${choice_ele.value}`);
+        new Notification(`completed your ${choice_ele.value}`);
     }
 
     // Otherwise, we need to ask the user for permission
@@ -111,11 +121,18 @@ function send_notif() {
         Notification.requestPermission().then(function (permission) {
             // If the user accepts, let's create a notification
             if (permission === "granted") {
-                var notification = new Notification(`completed your ${choice_ele.value}`);
+                new Notification(`completed your ${choice_ele.value}`);
             }
         });
     }
 }
+//pause timer button function
+function pause_timer() {
+    if (start_time_id)
+        clearInterval(start_time_id);
+    paused = true;
+}
+
 //when work mode is set it shows input field for giving name to work
 function show_work_name() {
     work_name_ele.style.display = 'block';
