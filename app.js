@@ -1,6 +1,6 @@
 //global jobs
-const logele = document.querySelector('.logdate');
-logele.innerText = new Date().toLocaleString();
+//const logele = document.querySelector('.logdate');
+//logele.innerText = new Date().toLocaleString();
 Notification.requestPermission().then(function (permission) { console.log('permission', permission) });
 const minutes = document.querySelector('.minutes')
 const seconds = document.querySelector('.seconds')

@@ -32,8 +32,8 @@
         </div>
     </div>
 
-    <div class="work_name">
-        <input type="text" name="work_name" id="work_name_id" value="rock your work:) ">
+    <div class="work_name mb-5 container">
+        <input type="text" name="work_name" id="work_name_id" value="rock your work:) " class="form-control" placeholder="Name for your work session">
     </div>
     <div class="butts container mb-4">
         <button onclick="start_timer()" class="btn btn-success">Start</button>
@@ -43,18 +43,16 @@
     </div>
     <div class="more_settings container text-center mt-4 mb-4 p-4" style="display: none;">
         <p>Work time: <input type="range" value="25" name="work_t" id="work_t" min="1" max="60"
-                oninput="updatevals('work_t')"><span class="work_tspan">25</span></p>
+                oninput="updatevals('work_t')" class="form-range"><span class="work_tspan">25</span></p>
         <p>Short break time: <input type="range" name="sb_t" id="sb_t" min="1" max="60" value="5"
-                oninput="updatevals('sb_t')"><span class="sb_tspan">5</span></p>
-        <p>Long break time: <input type="range" name="lb_t" id="lb_t" min="1" max="60" oninput="updatevals('lb_t')"
-                value="20"><span class="lb_tspan">20</span>
+                oninput="updatevals('sb_t')" class="form-range"><span class="sb_tspan">5</span></p>
+        <p>Long break time: <input type="range" name="lb_t" id="lb_t" min="1" max="60" oninput="updatevals('lb_t')" value="20" class="form-range"><span class="lb_tspan" >20</span>
         </p>
         <button onclick="show_more_settings()" class="btn btn-primary">save settings</button>
     </div>
     <div class="log container text-center">
         <h3>Logs:</h3>
         <div>
-            <p class="w_dis">Did some math</p><span class="logdate"></span>
         </div>
     </div>
     <script src="./app.js"></script>
